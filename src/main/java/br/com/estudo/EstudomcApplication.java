@@ -8,8 +8,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.com.estudo.domain.Categoria;
+import br.com.estudo.domain.Cidade;
+import br.com.estudo.domain.Estado;
 import br.com.estudo.domain.Produto;
 import br.com.estudo.repositories.CategoriaRepository;
+import br.com.estudo.repositories.CidadeRepository;
+import br.com.estudo.repositories.EstadoRepository;
 import br.com.estudo.repositories.ProdutoRepository;
 
 @SpringBootApplication
@@ -20,6 +24,12 @@ public class EstudomcApplication implements CommandLineRunner{
 	
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	
+	@Autowired
+	private EstadoRepository estadoRepository;
+	
+	@Autowired
+	private CidadeRepository cidadeRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(EstudomcApplication.class, args);
@@ -44,6 +54,20 @@ public class EstudomcApplication implements CommandLineRunner{
 		
 		categoriaRepository.saveAll(Arrays.asList(objCategoria1, objCategoria2));
 		produtoRepository.saveAll(Arrays.asList(objProduto1, objProduto2, objProduto3));
+		
+		Estado objEstado1 = new Estado(null, "Minas Gerais");
+		Estado objEstado2 = new Estado(null, "São Paulo");
+		
+		Cidade objCidade1 = new Cidade(null, "Uberlândia", objEstado1);
+		Cidade objCidade2 = new Cidade(null, "São Paulo", objEstado2);
+		Cidade objCidade3 = new Cidade(null, "Campinas", objEstado2);
+		
+		objEstado1.getCidades().addAll(Arrays.asList(objCidade1));
+		objEstado2.getCidades().addAll(Arrays.asList(objCidade2, objCidade3));
+		
+		estadoRepository.saveAll(Arrays.asList(objEstado1, objEstado2));
+		cidadeRepository.saveAll(Arrays.asList(objCidade1, objCidade2, objCidade3));
+		
 	}
 
 }
