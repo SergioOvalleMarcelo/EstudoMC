@@ -70,6 +70,11 @@ public class EstudomcApplication implements CommandLineRunner{
 		
 		Categoria objCategoria1 = new Categoria(null, "Informática");
 		Categoria objCategoria2 = new Categoria(null, "Escritório");
+		Categoria objCategoria3 = new Categoria(null, "Cama mesa e banho");
+		Categoria objCategoria4 = new Categoria(null, "Eletronicos");
+		Categoria objCategoria5 = new Categoria(null, "Jardinagem");
+		Categoria objCategoria6 = new Categoria(null, "Decorações");
+		Categoria objCategoria7 = new Categoria(null, "Perfumaria");
 		
 		Produto objProduto1 = new Produto(null, "Computador", 2000.00);
 		Produto objProduto2 = new Produto(null, "Impressora", 800.00);
@@ -82,7 +87,7 @@ public class EstudomcApplication implements CommandLineRunner{
 		objProduto2.getCategorias().addAll(Arrays.asList(objCategoria1, objCategoria2));
 		objProduto3.getCategorias().addAll(Arrays.asList(objCategoria1));
 		
-		categoriaRepository.saveAll(Arrays.asList(objCategoria1, objCategoria2));
+		categoriaRepository.saveAll(Arrays.asList(objCategoria1, objCategoria2, objCategoria3, objCategoria4, objCategoria5, objCategoria6, objCategoria7));
 		produtoRepository.saveAll(Arrays.asList(objProduto1, objProduto2, objProduto3));
 		
 		Estado objEstado1 = new Estado(null, "Minas Gerais");
