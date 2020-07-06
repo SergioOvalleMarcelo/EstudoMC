@@ -79,16 +79,37 @@ public class EstudomcApplication implements CommandLineRunner{
 		Produto objProduto1 = new Produto(null, "Computador", 2000.00);
 		Produto objProduto2 = new Produto(null, "Impressora", 800.00);
 		Produto objProduto3 = new Produto(null, "Mouse", 80.00);
+		Produto objProduto4 = new Produto(null, "Mesa de Escritorio", 300.00);
+		Produto objProduto5 = new Produto(null, "Toalha", 50.00);
+		Produto objProduto6 = new Produto(null, "Colcha", 200.00);
+		Produto objProduto7 = new Produto(null, "TV true color", 1200.00);
+		Produto objProduto8 = new Produto(null, "Roçadeira", 800.00);
+		Produto objProduto9 = new Produto(null, "Abajour", 100.00);
+		Produto objProduto10 = new Produto(null, "Pendente", 180.00);
+		Produto objProduto11 = new Produto(null, "Shampoo", 90.00);
 		
 		objCategoria1.getProdutos().addAll(Arrays.asList(objProduto1, objProduto2, objProduto3));
-		objCategoria2.getProdutos().addAll(Arrays.asList(objProduto2));
+		objCategoria2.getProdutos().addAll(Arrays.asList(objProduto2, objProduto4));
+		objCategoria3.getProdutos().addAll(Arrays.asList(objProduto5, objProduto6));
+		objCategoria4.getProdutos().addAll(Arrays.asList(objProduto1, objProduto2, objProduto3, objProduto7));
+		objCategoria5.getProdutos().addAll(Arrays.asList(objProduto8));
+		objCategoria6.getProdutos().addAll(Arrays.asList(objProduto9, objProduto10));
+		objCategoria7.getProdutos().addAll(Arrays.asList(objProduto11));
 		
-		objProduto1.getCategorias().addAll(Arrays.asList(objCategoria1));
-		objProduto2.getCategorias().addAll(Arrays.asList(objCategoria1, objCategoria2));
-		objProduto3.getCategorias().addAll(Arrays.asList(objCategoria1));
+		objProduto1.getCategorias().addAll(Arrays.asList(objCategoria1, objCategoria4));
+		objProduto2.getCategorias().addAll(Arrays.asList(objCategoria1, objCategoria2, objCategoria4));
+		objProduto3.getCategorias().addAll(Arrays.asList(objCategoria1, objCategoria4));
+		objProduto4.getCategorias().addAll(Arrays.asList(objCategoria2));
+		objProduto5.getCategorias().addAll(Arrays.asList(objCategoria3));
+		objProduto6.getCategorias().addAll(Arrays.asList(objCategoria3));
+		objProduto7.getCategorias().addAll(Arrays.asList(objCategoria4));
+		objProduto8.getCategorias().addAll(Arrays.asList(objCategoria5));
+		objProduto9.getCategorias().addAll(Arrays.asList(objCategoria6));
+		objProduto10.getCategorias().addAll(Arrays.asList(objCategoria6));
+		objProduto11.getCategorias().addAll(Arrays.asList(objCategoria7));
 		
 		categoriaRepository.saveAll(Arrays.asList(objCategoria1, objCategoria2, objCategoria3, objCategoria4, objCategoria5, objCategoria6, objCategoria7));
-		produtoRepository.saveAll(Arrays.asList(objProduto1, objProduto2, objProduto3));
+		produtoRepository.saveAll(Arrays.asList(objProduto1, objProduto2, objProduto3, objProduto4, objProduto5, objProduto6, objProduto7, objProduto8, objProduto9, objProduto10, objProduto11));
 		
 		Estado objEstado1 = new Estado(null, "Minas Gerais");
 		Estado objEstado2 = new Estado(null, "São Paulo");
